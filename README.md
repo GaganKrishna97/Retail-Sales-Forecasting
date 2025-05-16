@@ -1,79 +1,67 @@
-# 🛍️ Retail Sales Forecasting – Product Sales Prediction Project
+# 🛍️ Retail Sales Forecasting – Product Sales Prediction
 
-This project focuses on building a robust machine learning model to forecast retail product sales using historical transactional data. The final output is a deployed Flask web app and an interactive Tableau dashboard.
+This end-to-end project predicts retail store sales using historical transactional data. It includes EDA, hypothesis testing, XGBoost model training, Flask deployment, and a Tableau dashboard.
 
 ---
 
 ## 📌 Problem Statement
 
-The goal is to accurately predict **Sales** based on inputs like:
-- Store Type
-- Location Type
-- Region Code
-- Number of Orders
-- Date-related features (Month, Day, Weekday)
-- Holiday flag
+Retailers need accurate sales forecasts to optimize stock and plan operations. This project predicts daily sales based on features like store type, location, number of orders, and holidays.
 
 ---
 
-## 📊 Exploratory Data Analysis (EDA)
+## 🗃️ Dataset
 
-- Clear monthly trends in sales
-- Store Type S1 & S4 dominate overall sales
-- Significant drop in sales observed on holidays
+The dataset includes:
+- Store_Type, Location_Type, Region_Code
+- Holiday (Yes/No), #Order, Sales
+- Date (transformed into Month, Day, Weekday)
+
+---
+
+## 📊 EDA Insights
+
+- Sales peaked in March and June
+- Store Type S1 had the highest revenue
+- Holidays significantly reduce sales
 - Strong correlation between orders and sales
 
-📈 [📊 Tableau Dashboard](https://public.tableau.com/views/RetailSalesForecastingGaganKrishna/Dashboard1)
+📊 [Tableau Dashboard](https://public.tableau.com/views/RetailSalesForecastingGaganKrishna/Dashboard1)
 
 ---
 
 ## 🧪 Hypothesis Testing
 
-- ✅ Holidays have a **statistically significant** impact on sales  
-- T-test p-value < 0.05 confirms reduced sales during holidays
+Used a t-test to test:
+**Do holidays affect sales?**
+
+- T-statistic: -66.18  
+- p-value: 0.0000 ✅  
+➡️ Sales drop significantly on holidays
+
+---
+
+## 🛠 Feature Engineering
+
+- Extracted Month, Day, Weekday from Date
+- One-hot encoded all categorical variables
+- Dropped null/unused fields like Discount
 
 ---
 
 ## 🤖 Model Building
 
-Models tried:
-- Linear Regression (R² = 0.91)
-- ✅ XGBoost Regressor (R² = 0.96) → **Best performer**
-
-### 🔍 Final Metrics (XGBoost):
-- **MAE** = ₹2,483.62  
-- **RMSE** = ₹3,550.70  
-- **R²** = 0.9627
+| Model             | MAE      | RMSE     | R²     |
+|------------------|----------|----------|--------|
+| Linear Regression| ₹3,915.78 | ₹5,376.24 | 0.91   |
+| ✅ XGBoost        | ₹2,483.62 | ₹3,550.70 | **0.96** ✅
 
 ---
 
-## 💻 Flask Web App
+## 🌐 Flask Web App
 
-Built a lightweight Flask app to predict sales from form inputs.
+A simple interface to predict daily sales from user inputs.
 
-🔗 [Demo Video (Loom)](YOUR_LOOM_LINK_HERE)
-
----
-
-## 📦 Deployment Code
-
-- `app.py` – Flask backend
-- `index.html` – UI
-- `best_sales_model.pkl` – saved model file
-- `sales_forecasting_notebook.ipynb` – full EDA + training
-
----
-
-## 📎 Links
-
-- 🔗 [🧠 Medium Blog]([YOUR_MEDIUM_BLOG_LINK_HERE](https://medium.com/@tryhardggn/forecasting-retail-sales-7efc15d3a5aa))
-- 🔗 [📊 Tableau Dashboard](https://public.tableau.com/views/RetailSalesForecastingGaganKrishna/Dashboard1)
-- 🔗 [💻 Live Flask Code](GITHUB_LINK_HERE)
-- 🔗 [🧠 DataSciencePortfolio.io (Optional)](YOUR_DSP_LINK)
-
----
-
-## 🙌 Author
-
-**Gagan Krishna**  
-Built as part of a Data Science Portfolio Module  
+📂 Run with:  
+```bash
+python app.py
