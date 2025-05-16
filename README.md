@@ -66,7 +66,7 @@ Built a lightweight Flask app to predict sales from form inputs.
 
 ## 📎 Links
 
-- 🔗 [🧠 Medium Blog](YOUR_MEDIUM_BLOG_LINK_HERE)
+- 🔗 [🧠 Medium Blog]([YOUR_MEDIUM_BLOG_LINK_HERE](https://medium.com/@tryhardggn/forecasting-retail-sales-7efc15d3a5aa))
 - 🔗 [📊 Tableau Dashboard](https://public.tableau.com/views/RetailSalesForecastingGaganKrishna/Dashboard1)
 - 🔗 [💻 Live Flask Code](GITHUB_LINK_HERE)
 - 🔗 [🧠 DataSciencePortfolio.io (Optional)](YOUR_DSP_LINK)
